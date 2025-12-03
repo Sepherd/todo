@@ -20,7 +20,7 @@ Quick Start
 
 1. Clone the repo:
 
-2. git clone https://github.com/yourusername/todo-list-app.git
+2. git clone https://github.com/sepherd/todo.git
 
 3. Open index.html in your browser
 
