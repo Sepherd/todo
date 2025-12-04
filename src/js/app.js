@@ -145,22 +145,23 @@ function createTaskElement(taskText, status = false, id = null) {
     const idTask = id ? sanitizeInput(String(id)) : String(Date.now());
     let sanitizedText = sanitizeInput(taskText);
     sanitizedText = sanitizedText.charAt(0).toUpperCase() + sanitizedText.slice(1);
+    const textLength = sanitizedText.length > 25 ? true : false;
     const li = `
-    <li class="flex justify-between items-center max-w-full last:mb-4 max-h-4 md:max-h-6" role="listitem" aria-label="Task: ${sanitizedText}" data-id="${idTask}" data-status="${statusTask}">
-        <div class="flex items-center gap-2 md:gap-4 ">
-            <svg class="icon-task size-4 md:size-6 text-sky-500 cursor-pointer">
+    <li class="flex justify-between items-center max-w-full last:mb-4" role="listitem" aria-label="Task: ${sanitizedText}" data-id="${idTask}" data-status="${statusTask}">
+        <div class="flex items-center gap-2 md:gap-4 flex-1 min-w-0">
+            <svg class="icon-task size-5 md:size-6 text-sky-500 cursor-pointer flex-shrink-0">
                 <use href="./src/svg/icons.svg#${statusTask === 'true' ? 'check' : 'circle'}"></use>
             </svg>
-            <p class="text-task ${statusTask === 'true' ? 'line-through opacity-50' : ''} cursor-pointer max-w-2xs md:max-w-lg wrap-break-word whitespace-normal overflow-x-hidden">${sanitizedText}</p>
+            <p class="text-task ${statusTask === 'true' ? 'line-through opacity-50' : ''} ${textLength ? 'text-sm md:text-base pr-2' : ''} cursor-pointer max-w-2xs md:max-w-lg min-w-0 break-all whitespace-normal overflow-hidden">${sanitizedText}</p>
         </div>
         <div class="flex flex-row items-center justify-center gap-2">
             <button type="button" class="modify" aria-label="Modify task">
-                <svg class="modify size-4 md:size-6 text-sky-500 cursor-pointer">
+                <svg class="modify size-5 md:size-6 text-sky-500 cursor-pointer">
                     <use href="./src/svg/icons.svg#modify"></use>
                 </svg>
             </button>
             <button type="button" class="trash-can" aria-label="Delete task">
-                <svg class="trash-can size-4 md:size-6 text-red-600 cursor-pointer">
+                <svg class="trash-can size-5 md:size-6 text-red-600 cursor-pointer">
                     <use href="./src/svg/icons.svg#trash-can"></use>
                 </svg>
             </button>
