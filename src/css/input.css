@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+    --color-background: var(--color-slate-300);
+    --color-start: var(--color-slate-700);
+    --color-end: var(--color-slate-900);
+    --color-text-color: var(--color-zinc-700);
+    --color-caret-hover: var(--color-zinc-900);
+    --color-accent: var(--color-sky-600);
+    --color-accent-hover: var(--color-sky-700);
+    --color-accent-active: var(--color-sky-800);
+    --color-cancel: var(--color-red-600);
+    --color-cancel-hover: var(--color-red-700);
+    --color-cancel-active: var(--color-red-800);
+    --color-check: var(--color-emerald-700);
+    --color-check-hover: var(--color-emerald-800);
+    --color-border: var(--color-slate-400);
+    --color-counter: var(--color-slate-500);
+}
+
+#main {
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}

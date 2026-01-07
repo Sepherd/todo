@@ -24,4 +24,6 @@ Quick Start
 
 3. Open index.html in your browser
 
+4. You can also use the live demo hosted on GitHub Pages: https://sepherd.github.io/todo/
+
 Start managing your tasks!

@@ -2,44 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="src/css/output.css" rel="stylesheet">
-    <title>To-Do List</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="src/css/output.css" rel="stylesheet">
+	<title>To-Do List</title>
 </head>
 
-<body class="min-h-screen w-full px-4 pt-12 md:pt-0 bg-linear-to-bl from-slate-700 to-slate-900 flex items-start md:items-center justify-center">
-    <div class="bg-slate-300 w-2xl p-4 md:p-8 rounded-xl flex flex-col gap-8">
-        <div class="w-full flex items-center justify-center md:justify-start text-3xl md:text-4xl font-bold gap-2">
-            <h1 class="text-zinc-700">To-Do List</h1>
-            <svg class="inline size-[1.5em] text-sky-500">
-                <use href="./src/svg/icons.svg#logo"></use>
-            </svg>
-        </div>
-        <div
-            class="w-full flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-0 text-lg md:text-2xl">
-            <label for="taskInput" class="sr-only">Add a new task</label>
-            <input type="text" maxlength="100"
-                class="w-full md:basis-3/4 p-2 md:mr-4 focus:outline-none text-zinc-700 box-border border-2 rounded-lg border-transparent"
-                placeholder="Add a new task..." id="taskInput" autocomplete="off">
-            <button type="button" id="addTaskBtn"
-                class="w-full md:basis-1/4 p-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 cursor-pointer box-border border-2 border-transparent active:border-sky-800 active:scale-95 transition-transform duration-150">
-                Add Task
-            </button>
-        </div>
-        <div class="max-w-full">
-            <ul id="tasksList" class="text-lg md:text-xl flex flex-col gap-4 w-full" role="list"
-                aria-label="Tasks List">
-            </ul>
-        </div>
-    </div>
-    <footer class="fixed bottom-0 w-full p-4 bg-slate-300 text-sm md:text-base text-center">
-        <p class="w-1/2 md:w-1/3 mx-auto">
-            Your tasks are saved only in your browser. No data is sent anywhere.
-        </p>
-    </footer>
-
-    <script src="src/js/app.js"></script>
+<body class="min-h-screen px-4 pt-12 pb-8 md:pt-16 md:px-0 bg-linear-to-bl from-start to-end text-text-color overflow-y-scroll">
+	<div id="main" class="w-full md:max-w-2xl md:mx-auto p-4 md:p-8 bg-background flex flex-col justify-start gap-2 md:gap-4 rounded-xl">
+		<div id="title"	class="w-full flex items-center justify-center md:justify-start text-3xl md:text-4xl font-bold gap-2">
+			<h1 class="">To-Do List</h1>
+			<svg class="inline size-[1.5em] text-accent">
+				<use href="./src/svg/icons.svg#logo"></use>
+			</svg>
+		</div>
+		<div id="inputSection" class="w-full flex flex-col items-start justify-between gap-2 text-lg md:text-2xl mt-4">
+			<div class="w-full h-10 md:h-12 flex items-center justify-between gap-2 mt-2">
+				<label for="taskInput" class="sr-only">Add a new task</label>
+				<input type="text" class="w-full py-2 focus:outline-none text-text-color box-border border-2 rounded-lg border-transparent transition-colors duration-300"
+					placeholder="Add a new task" id="taskInput" aria-describedby="counter" autocomplete="off" oninput="counter.value = 100 - this.value.length">
+				<div class="counter h-full w-10 md:w-12 bg-counter text-white text-xs md:text-sm rounded-md grid place-items-center"><output id="counter" aria-live="polite" aria-atomic="true"></output></div>
+			</div>
+			<button type="button" id="addTaskBtn" class="w-full p-2 bg-accent text-white rounded-lg hover:bg-accent-hover cursor-pointer active:scale-95 transition-transform duration-150" aria-label="Add Task">
+				Add Task
+			</button>
+		</div>
+		<div id="tasksContainer" class="w-full">
+			<ul id="tasksList" class="text-base md:text-lg flex flex-col gap-4 w-full"
+				aria-label="Tasks List">
+			</ul>
+			<button type="button" id="clearTasksBtn" aria-label="Clear all tasks" class="w-full text-lg md:text-2xl bg-cancel text-white rounded-lg hover:bg-cancel-hover opacity-0 scale-95 pointer-events-none transition-all duration-300" aria-label="Clear All Tasks">
+				Clear All Tasks
+			</button>
+		</div>
+		<div id="footer" class="w-full p-2 mt-2 md:mt-4 text-center text-xs md:text-sm flex flex-col gap-2 text-text-color/70">
+			<p>Your tasks are saved only in your browser. No data is sent anywhere.</p>
+			<p>&copy; 2026 - Built by Andrea Recce - <a href="https://github.com/Sepherd/todo" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover hover:underline">GitHub Repository</a></p>
+			<p>Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover hover:underline">FontAwesome</a></p>
+		</div>
+	</div>
+	<script src="src/js/app.js"></script>
 </body>
 
 </html>
